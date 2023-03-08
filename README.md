@@ -44,13 +44,14 @@ ALTER TABLE permissao ADD CONSTRAINT fk_permissao_usuario FOREIGN KEY (usuario_i
 
 INSERT INTO usuario(nome, email, telefone, criado_em, senha, url_imagem, ativo) VALUES('teste', 'teste@teste.com.br','999999', '2023-03-08 10:00:00', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://img.freepik.com/vetores-premium/homem-perfil-caricatura_18591-58482.jpg?w=2000', true);
 INSERT INTO permissao (nome, usuario_id) VALUES ('USUARIO', 1);
+```
 
 ### Api
 ```bash
 utilizar o postman para testar os metodos.
 importar o arquivo postman na pasta data localizada na raiz do projeto.
 ```
-```
+
 
 ### APP VSCODE 
 rode no terminal esses comandos 
