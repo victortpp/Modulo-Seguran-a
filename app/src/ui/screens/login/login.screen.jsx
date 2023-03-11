@@ -55,6 +55,7 @@ export function LoginScreen() {
                 />
                 <button className="botao-login"> Entrar </button>
                 <button className="botao-login" onClick={(() => navigate("/cadastro"))}>Cadastar</button>
+                <a href="/forgot_password">Forgot your password?</a>
             </form>
         </div>
     )

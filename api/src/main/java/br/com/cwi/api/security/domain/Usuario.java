@@ -30,6 +30,9 @@ public class Usuario {
     private String senha;
     private boolean ativo;
 
+    @Column(name = "reset_password_token")
+    private String resetPasswordToken;
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Permissao> permissoes = new ArrayList<>();
 

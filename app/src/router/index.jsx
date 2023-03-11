@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { LoginScreen, CadastroScreen, PerfilScreen} from "../ui/screens";
+import { LoginScreen, CadastroScreen, PerfilScreen, ForgotPassword} from "../ui/screens";
 
 export const router = createBrowserRouter([
     {
@@ -13,6 +13,10 @@ export const router = createBrowserRouter([
     {
         path: "/perfil",
         element: <PerfilScreen />
+    },
+    {
+        path: "forgot_password",
+        element: <ForgotPassword />
     },
 
 ])
