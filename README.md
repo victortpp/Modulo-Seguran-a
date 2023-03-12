@@ -16,6 +16,7 @@ Tentando implementar no codigo métodos mostrados em aula
 ### BANCO DE DADOS 
 rode esse scritp no banco 
 ```bash
+CREATE ROLE admin WITH LOGIN SUPERUSER PASSWORD 'admin';
 DROP TABLE IF EXISTS permissao CASCADE;
 DROP TABLE IF EXISTS usuario CASCADE;
 
