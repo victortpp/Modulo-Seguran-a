@@ -30,6 +30,8 @@ public class SecurityConfig {
                 .and()
                     .authorizeRequests().antMatchers(POST, "/usuarios").permitAll()
                 .and()
+                    .authorizeRequests().antMatchers(POST, "/senhas/**").permitAll()
+                .and()
                     .authorizeRequests().anyRequest().authenticated()
                 .and()
                     .httpBasic().authenticationEntryPoint((request, response, authException) -> response.setStatus(UNAUTHORIZED.value()))

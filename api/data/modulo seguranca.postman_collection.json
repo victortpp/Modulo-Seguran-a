@@ -161,65 +161,64 @@
 			"response": []
 		},
 		{
-			"name": "rota publica",
+			"name": "enviar email troca de senha",
 			"request": {
-				"method": "GET",
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"teste\",\n    \"email\": \"teste@cwi.com.br\",\n    \"senha\": \"123456\",\n    \"permissoes\": [\n        \"ADMIN\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/exemplos/publico",
+					"raw": "http://localhost:8080/usuarios/me",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"exemplos",
-						"publico"
+						"usuarios",
+						"me"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "rota privada",
+			"name": "troca de senha",
 			"request": {
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"teste\",\n    \"email\": \"teste@cwi.com.br\",\n    \"senha\": \"123456\",\n    \"permissoes\": [\n        \"ADMIN\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/exemplos",
+					"raw": "http://localhost:8080/usuarios/me",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"exemplos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "rota privada (exclusiva para admin)",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/exemplos/admin",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"exemplos",
-						"admin"
+						"usuarios",
+						"me"
 					]
 				}
 			},

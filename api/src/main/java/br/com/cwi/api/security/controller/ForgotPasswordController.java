@@ -9,14 +9,15 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 
+@RestController
+@RequestMapping("/senhas")
 public class ForgotPasswordController {
     @Autowired
     private JavaMailSender mailSender;
@@ -30,13 +31,13 @@ public class ForgotPasswordController {
     }
 
     @PostMapping("/forgot_password")
-    public String processForgotPassword(HttpServletRequest request, Model model) {
+    public String processForgotPassword( HttpServletRequest request, Model model) {
         String email = request.getParameter("email");
         String token = RandomString.make(30);
 
         try {
             usuarioService.updateResetPasswordToken(token, email);
-            String resetPasswordLink = Utility.getSiteURL(request) + "/reset_password?token=" + token;
+            String resetPasswordLink = Utility.getSiteURL(request) + "/senhas/reset_password?token=" + token;
             sendEmail(email, resetPasswordLink);
             model.addAttribute("message", "Nós vamos te enviar um link para mudar a senha.");
 
@@ -58,7 +59,7 @@ public class ForgotPasswordController {
         String subject = "Aqui está o link para você mudar de senha";
 
         String content = "<p>Olá,</p>"
-                + "<p>Você solicitou a troca de senha..</p>"
+                + "<p>Você solicitou a troca de senha.</p>"
                 + "<p>Clique no link para alterar a senha:</p>"
                 + "<p><a href=\"" + link + "\">Change my password</a></p>"
                 + "<br>"
@@ -102,6 +103,6 @@ public class ForgotPasswordController {
             model.addAttribute("message", "Você alterou a sua senha.");
         }
 
-        return "message";
+        return "Você alterou a sua senha.";
     }
 }
