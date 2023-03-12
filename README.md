@@ -28,7 +28,8 @@ CREATE TABLE usuario (
 	atualizado_em TIMESTAMP,
 	senha VARCHAR(128) NOT NULL,
 	url_imagem VARCHAR(512),
-	ativo BOOLEAN NOT NULL
+	ativo BOOLEAN NOT NULL,
+	reset_password_token VARCHAR(30)
 );
 ALTER TABLE usuario ADD CONSTRAINT pk_usuario PRIMARY KEY (id);
 ALTER TABLE usuario ADD CONSTRAINT uk_usuario_email UNIQUE (email);
